@@ -1,0 +1,64 @@
+﻿@model IEnumerable<F.EN.PersonaF>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Crear">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidoF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeNacimientoF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SueldoF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstatusF)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeNacimientoF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SueldoF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstatusF)
+            </td>
+            <td>
+                @Html.ActionLink("Modificar", "Modificar", new {  id=item.Id }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
